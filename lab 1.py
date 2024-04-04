@@ -26,37 +26,28 @@ def readInputData():
                 getIndexRectHeight = lambda : random.randint(0, int(rectWidth * zoom) - 1)
                 break
             case _:
-                print("Не найденно соответствие!\n=============2=\n")
+                print("Не найденно соответствие!\n==============\n")
 
 def F(x):                   # наша прекрасная функция
-    return cos(2 * x)
+    return sin(x)       # вар 11
+    #return e**-x       # вар 16
+    #return cos(2 * x)  # вар 28
 
 singleSegmentX = 1          # еденичный отрезок по X
 singleSegmentY = 1          # еденичный отрезок по Y
 startX = 0                  # начало ООФ
-finX = pi              # конец ООФ
+finX = 2 * pi               # конец ООФ вар 11
+#finX = 2                    # конец ООФ вар 16
+#finX = pi                   # конец ООФ вар 28
 startY = -1                 # начало ОДЗ
 finY = 1                    # конец ОДЗ
 
 readInputData()
 
-#divisions = 15              # число точек разбиения
-
 rectWidth = (finX - startX) / divisions # ширина однго раздиения
 
-# какую по номеру точку из разбиения взять за оснащение
-    # левую
-#getIndexRectHeight = lambda : 0         
-    # правую
-#getIndexRectHeight = lambda : int(rectWidth * zoom) // 2
-    # среднюю
-#getIndexRectHeight = lambda : int(rectWidth * zoom) - 1
-    # случайную
-#getIndexRectHeight = lambda : random.randint(0, int(rectWidth * zoom) - 1)
-
-
 zoom = 100                  # увеличить изобраение в zoom раз
-cordOriginX = -100          # сместить график в окне по X
+cordOriginX = -200          # сместить график в окне по X
 cordOriginY = 0             # сместить график в окне по Y
 colorChart = "#7f00ff"      # цвет графика
 colorRect = "#ff0000"       # цвет прямоугольничков
@@ -153,6 +144,8 @@ def myRound(f, n):
 
 teleport(T, (startX + finX) / 2 * zoom - zoom, finY * zoom + zoom * 2 / 3)
 T.write("Интегральная сумма = " + str(myRound(integralSum, 7)))
+teleport(T, (startX + finX) / 2 * zoom - zoom, finY * zoom + zoom * 2 / 3 + 20)
+T.write("Число разбиений = " + str(divisions))
 
 print("\nИнтегральная сумма =", myRound(integralSum, 7), "\n")
 
