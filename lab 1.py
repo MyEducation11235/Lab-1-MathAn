@@ -42,10 +42,6 @@ finX = 2 * pi               # конец ООФ вар 11
 startY = -1                 # начало ОДЗ
 finY = 1                    # конец ОДЗ
 
-readInputData()
-
-rectWidth = (finX - startX) / divisions # ширина однго раздиения
-
 zoom = 100                  # увеличить изобраение в zoom раз
 cordOriginX = -200          # сместить график в окне по X
 cordOriginY = 0             # сместить график в окне по Y
@@ -100,6 +96,9 @@ def drawRect(x_lt, y_lt, x_rb, y_rb):
         T.right(90)
         T.forward(y_lt - y_rb)
         T.right(90)
+
+
+readInputData()
 
 drawAxes(int((startX - 1) * zoom), int(finY * zoom), int((finX + 1) * zoom), int(startY * zoom), int(singleSegmentX * zoom), int(singleSegmentY * zoom))
 
